@@ -8,3 +8,7 @@
 ## 9 octobre 2025 (Alexis)
 - Ajout des challenges sur les thèmes `Mathematics` et `Diffie-Hellman`
 - Mise à jour du `progress_log.md`.
+
+## 11 octobre 2025 (Alexis)
+- Ajout des challenges sur les thèmes `RSA`, `Symmetric Ciphers`, `Crypto on the Web`et `Elliptic Curves`
+- Mise à jour du `progress_log.md`.
