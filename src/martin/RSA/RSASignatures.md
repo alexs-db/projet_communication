@@ -1,0 +1,49 @@
+# Challenge : Signature Numérique (Authenticité des Messages)
+
+## Explication du Défi
+
+Ce challenge illustre l'importance de la **signature numérique** en cryptographie pour garantir l'**authenticité** et l'**intégrité** d'un message, c'est-à-dire s'assurer que l'expéditeur est bien celui qu'il prétend être et que le message n'a pas été altéré en transit.
+
+### Le Problème de l'Authenticité
+
+Si un message chiffré est intercepté par un attaquant (le "jaloux"), celui-ci peut modifier le message après déchiffrement (ou même l'altérer d'une manière qui le rend incorrect après déchiffrement), sans que le destinataire ne le sache.
+
+### La Solution : Signature RSA
+
+La signature numérique, ici basée sur RSA, fonctionne ainsi :
+
+1.  **Signer :** L'expéditeur calcule le **hachage** ($\text{H}(m)$) du message $m$. Il "chiffre" ensuite ce hachage avec **sa propre clé privée** ($\text{S} = \text{H}(m)^{d} \pmod{N}$).
+2.  **Vérifier :** Le destinataire :
+    * Déchiffre le message $m$.
+    * Calcule le hachage du message reçu, $\text{H}(m)$.
+    * "Déchiffre" la signature $\text{S}$ en utilisant la **clé publique de l'expéditeur** ($s = \text{S}^{e} \pmod{N}$).
+    * Si $\text{H}(m)$ est égal à $s$, l'authenticité et l'intégrité sont prouvées.
+
+---
+
+## La Tâche à Accomplir
+
+Vous devez simuler l'étape de signature :
+
+1.  Utiliser la **clé privée** fournie dans le fichier `private.key`.
+2.  Prendre le *flag* comme message : `crypto{Immut4ble_m3ssag1ng}`.
+3.  Calculer le hachage **SHA256** de ce *flag*.
+4.  Convertir le résultat du hachage (des octets) en un **grand entier** (`bytes_to_long()`).
+5.  **Signer** cet entier avec votre clé privée (application de l'opération RSA $S = \text{H}(m)^{d} \pmod{N}$).
+
+Le *flag* à soumettre est la **signature numérique** résultante.
+
+## Résolution du Défi
+
+Le script suivant utilise les composants publics et privés d'une clé RSA pour signer le flag du challenge.
+
+```Python
+from Crypto.Hash import SHA256
+from Crypto.Util.number import bytes_to_long
+N = 15216583654836731327639981224133918855895948374072384050848479908982286890731769486609085918857664046075375253168955058743185664390273058074450390236774324903305663479046566232967297765731625328029814055635316002591227570271271445226094919864475407884459980489638001092788574811554149774028950310695112688723853763743238753349782508121985338746755237819373178699343135091783992299561827389745132880022259873387524273298850340648779897909381979714026837172003953221052431217940632552930880000919436507245150726543040714721553361063311954285289857582079880295199632757829525723874753306371990452491305564061051059885803
+d = 11175901210643014262548222473449533091378848269490518850474399681690547281665059317155831692300453197335735728459259392366823302405685389586883670043744683993709123180805154631088513521456979317628012721881537154107239389466063136007337120599915456659758559300673444689263854921332185562706707573660658164991098457874495054854491474065039621922972671588299315846306069845169959451250821044417886630346229021305410340100401530146135418806544340908355106582089082980533651095594192031411679866134256418292249592135441145384466261279428795408721990564658703903787956958168449841491667690491585550160457893350536334242689
+# hm = int('259f7a318fa46d43acd6a32ce41c63e91e16d40fc7a8f3dea39dc5df59d1ef31', 16) # from the above Linux utils
+hash = SHA256.new(data=b'crypto{Immut4ble_m3ssag1ng}')
+S = pow(bytes_to_long(hash.digest()), d, N)
+print(hex(S)[2:])
+```
