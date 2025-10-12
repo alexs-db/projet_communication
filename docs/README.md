@@ -3,4 +3,4 @@
 Contient les documents liés à la gestion du projet :
 
 - `agile_method.md` : répartition des tâches, suivi Agile
-- `progress_log.md` : journal d’avancement et notes internes
+- `tableau_kanban.png` : gestion et progression des tâches entre les membres de l'équipe.
