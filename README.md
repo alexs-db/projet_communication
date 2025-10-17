@@ -38,8 +38,8 @@ Résoudre plusieurs challenges sur [CryptoHack](https://cryptohack.org) pour com
 L'objectif est de combiner la pratique (résolution des challenges) avec l'explication théorique et la mise en perspective pratique (exemples, scripts, captures) dans le rapport.
 
 ## Équipe
-- Alexis Debra
-- Martin Vicquelin
+- Alexis Debra | [Profil d'Alexis](https://cryptohack.org/user/ScaRed/) 
+- Martin Vicquelin | [Profil de Martin](https://cryptohack.org/user/mv9lagrintaa)
 
 ## ️Organisation du dépôt
 - `src/` : scripts de résolution des challenges

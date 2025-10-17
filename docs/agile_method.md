@@ -17,7 +17,7 @@ L’objectif est de favoriser la progression continue, la clarté des tâches et
 
 ## Rythme de travail
 - **Courtes itérations** (1 à 2 jours par catégorie de challenges)  
-- **Mise à jour régulière** du fichier `progress_log.md` après chaque session  
+- **Mise à jour régulière** du fichier `tableau_kanban.png` après chaque session  
 - **Revue rapide** en fin de semaine pour évaluer la progression et ajuster les priorités
 
 ---
