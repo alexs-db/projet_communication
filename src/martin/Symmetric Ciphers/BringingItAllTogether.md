@@ -25,7 +25,7 @@ La fonction decrypt a pour but de déchiffrer un message chiffré (ciphertext) e
 
 ```Python
 def decrypt(key, ciphertext):
-    round_keys = expand_key(key) # Remember to start from the last round key and work backwards through them when decrypting
+    round_keys = expand_key(key)
 
     # Convert ciphertext to state matrix
     state = bytes2matrix(ciphertext)
