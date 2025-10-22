@@ -21,7 +21,7 @@ Le résultat final du déchiffrement est le **texte clair**, qui est le *flag*.
 
 ## Résolution du Défi
 
-La fonction decrypt a pour but de déchiffrer un message chiffré (ciphertext) en utilisant la clé secrète (key) selon l'algorithme AES.
+Le programme déchiffre un message chiffré (ciphertext) avec une clé secrète (key) en utilisant l’algorithme AES
 
 ```Python
 N_ROUNDS = 10
